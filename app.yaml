@@ -1,0 +1,17 @@
+# https://cloud.google.com/appengine/docs/flexible/custom-runtimes/quickstart
+
+threadsafe: true
+
+env: standard
+runtime: python27
+
+handlers:
+  - url: /
+    static_files: build/web/index.html
+    upload: build/web/index.html
+    secure: always
+
+  - url: /(.*)
+    static_files: build/web/\1
+    upload: build/web/(.*)
+    secure: always
